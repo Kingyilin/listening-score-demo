@@ -4,5 +4,15 @@
   "kdf": "PBKDF2-SHA-256",
   "iterations": 310000,
   "salt": "3yWP9GYFE1mMqyRXYQAxsw==",
-  "iv": "2xgDpODyXdP8Y4pV"
+  "iv": "2xgDpODyXdP8Y4pV",
+  "releaseId": "1793169346860",
+  "payload": {
+    "url": "audio-1793169346860000.bin",
+    "length": 24160912,
+    "sha256": "7b6eb7da04f15889e07513e09eb19bee5496cb3f7b4d01ad38d0928bfe4ac874"
+  },
+  "inviteCheck": {
+    "iv": "A7voEks2AFIE66dV",
+    "ciphertext": "bLmQVJptSTWwJ0yXIIzkK1O7ayGvsFcCf2qf1uRq6gWhcyHV"
+  }
 }

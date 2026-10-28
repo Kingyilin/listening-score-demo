@@ -108,6 +108,15 @@
         box-shadow: 0 0 0 3px rgba(214, 164, 99, .14);
       }
 
+      .invite-field { position: relative; }
+      .invite-field input { padding-right: 76px; }
+      .invite-field .visibility-toggle { position: absolute; top: 0; right: 2px; width: 68px; min-height: 48px; margin: 0; color: #e5bd80; background: transparent; font-size: 13px; }
+      .input-note { margin: 9px 0 0; color: #a69c90; font-size: 12px; line-height: 1.6; }
+      .gate-progress { width: 100%; height: 6px; margin-top: 16px; accent-color: #e5bd80; }
+      .gate-progress[hidden] { display: none; }
+      .gate-progress::-webkit-progress-bar { background: #393027; border-radius: 6px; }
+      .gate-progress::-webkit-progress-value { background: #e5bd80; border-radius: 6px; }
+
       button {
         width: 100%;
         min-height: 48px;
@@ -151,7 +160,7 @@
         .card { padding: 30px 22px 24px; border-radius: 14px; }
       }
     </style>
-    <script src="./gate.js?v=1793167215310" defer></script>
+    <script src="./gate.js?v=1793169346860" defer></script>
   </head>
   <body>
     <main>
@@ -162,18 +171,25 @@
         <p class="intro">请输入邀请码继续。还没有邀请码，请向站点主人索取。</p>
         <form id="gate-form">
           <label for="invite-code">邀请码</label>
+          <div class="invite-field">
           <input
             id="invite-code"
             type="password"
             inputmode="text"
             autocomplete="off"
+            autocorrect="off"
             autocapitalize="characters"
             spellcheck="false"
+            aria-describedby="invite-format-note gate-status"
             required
             autofocus
           />
+          <button id="toggle-invite-code" class="visibility-toggle" type="button" aria-label="显示邀请码" aria-pressed="false">显示</button>
+          </div>
+          <p class="input-note" id="invite-format-note">可以直接粘贴；会自动清理多余空格和连接号格式。</p>
           <button id="unlock-button" type="submit">进入总谱</button>
         </form>
+        <progress id="gate-progress" class="gate-progress" max="100" value="0" aria-label="演示内容载入进度" hidden></progress>
         <p class="status" id="gate-status" role="status" aria-live="polite">准备好一段安静的时间，跟着音乐读总谱。</p>
         <p class="note">首次打开需要一点时间；本浏览器可保持访问 7 天。</p>
       </section>
