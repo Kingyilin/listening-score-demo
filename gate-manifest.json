@@ -3,6 +3,6 @@
   "algorithm": "AES-256-GCM",
   "kdf": "PBKDF2-SHA-256",
   "iterations": 310000,
-  "salt": "dElYA8+GN+ojnRycN0XJfA==",
-  "iv": "/Y74gZ6c5MpuvjTF"
+  "salt": "3yWP9GYFE1mMqyRXYQAxsw==",
+  "iv": "aBgZvup6eEUQv3Cx"
 }

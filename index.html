@@ -7,10 +7,10 @@
     <meta name="theme-color" content="#0c0b0a" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; worker-src 'self'; img-src data:; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
+      content="default-src 'none'; script-src 'self' blob:; style-src 'self' blob: 'unsafe-inline'; connect-src 'self' blob:; worker-src 'self' blob:; img-src 'self' blob: data:; media-src 'self' blob:; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
     />
     <title>听见总谱 · 邀请访问</title>
-    <style>
+    <style id="gate-theme">
       :root {
         color-scheme: dark;
         font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;

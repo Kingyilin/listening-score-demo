@@ -234,7 +234,7 @@ self.addEventListener("fetch", (event) => {
   if (url.origin !== self.location.origin || !url.pathname.startsWith(scopePath)) return;
 
   const relativePath = decodeURIComponent(url.pathname.slice(scopePath.length));
-  const publicFiles = ["", "index.html", "gate.js", "sw.js", "gate-manifest.json", "payload.bin", "favicon.ico"];
+  const publicFiles = ["", "index.html", "gate.js", "portable-runtime.js", "sw.js", "gate-manifest.json", "payload.bin", "favicon.ico"];
   if (publicFiles.includes(relativePath) || /^audio-\d+\.bin$/.test(relativePath)) return;
   event.respondWith((async () => {
     if (await ensureVirtualSite()) {
