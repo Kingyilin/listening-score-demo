@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0c0b0a" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; connect-src 'self'; worker-src 'self'; img-src data:; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
+    />
+    <title>听见总谱 · 邀请访问</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        min-height: 100vh;
+        margin: 0;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        color: #f5efe5;
+        background:
+          radial-gradient(circle at 20% 15%, rgba(179, 117, 56, .18), transparent 34rem),
+          radial-gradient(circle at 85% 80%, rgba(114, 63, 31, .14), transparent 30rem),
+          #0c0b0a;
+      }
+
+      main { width: min(100%, 430px); }
+
+      .card {
+        position: relative;
+        overflow: hidden;
+        padding: 36px 34px 30px;
+        border: 1px solid rgba(228, 190, 139, .22);
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(35, 31, 27, .96), rgba(18, 16, 14, .98));
+        box-shadow: 0 28px 90px rgba(0, 0, 0, .48);
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #d6a463, transparent);
+      }
+
+      .mark {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        margin-bottom: 24px;
+        border: 1px solid rgba(214, 164, 99, .42);
+        border-radius: 50%;
+        color: #e5bd80;
+        font: 28px Georgia, serif;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: #c99a5d;
+        font-size: 13px;
+        letter-spacing: .16em;
+      }
+
+      h1 {
+        margin: 0;
+        font: 600 clamp(28px, 7vw, 38px)/1.2 Georgia, "Songti SC", serif;
+        letter-spacing: .03em;
+      }
+
+      .intro {
+        margin: 16px 0 28px;
+        color: #bcb3a7;
+        font-size: 16px;
+        line-height: 1.75;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 9px;
+        color: #ddd4c7;
+        font-size: 14px;
+      }
+
+      input {
+        width: 100%;
+        min-height: 48px;
+        padding: 0 14px;
+        color: #fff8ed;
+        font: 500 16px/1 system-ui, sans-serif;
+        letter-spacing: .08em;
+        border: 1px solid #4e453a;
+        border-radius: 10px;
+        outline: none;
+        background: #12100e;
+      }
+
+      input:focus {
+        border-color: #d6a463;
+        box-shadow: 0 0 0 3px rgba(214, 164, 99, .14);
+      }
+
+      button {
+        width: 100%;
+        min-height: 48px;
+        margin-top: 14px;
+        border: 0;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #1b130b;
+        background: linear-gradient(135deg, #e8c28d, #c98d49);
+        font: 700 16px/1 system-ui, sans-serif;
+      }
+
+      button:hover { filter: brightness(1.06); }
+      button:disabled { cursor: wait; filter: grayscale(.35); opacity: .72; }
+
+      button:focus-visible {
+        outline: 3px solid rgba(232, 194, 141, .4);
+        outline-offset: 3px;
+      }
+
+      .status {
+        min-height: 44px;
+        margin: 12px 0 0;
+        color: #a69c90;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .status.error { color: #f0a89d; }
+      .status.success { color: #a9d7b2; }
+
+      .note {
+        margin: 18px 0 0;
+        color: #7f776d;
+        font-size: 13px;
+        line-height: 1.6;
+        text-align: center;
+      }
+
+      @media (max-width: 480px) {
+        .card { padding: 30px 22px 24px; border-radius: 14px; }
+      }
+    </style>
+    <script src="./gate.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <section class="card" aria-labelledby="gate-title">
+        <div class="mark" aria-hidden="true">𝄞</div>
+        <p class="eyebrow">邀请制演示</p>
+        <h1 id="gate-title">听见总谱</h1>
+        <p class="intro">请输入邀请码继续。还没有邀请码，请向站点主人索取。</p>
+        <form id="gate-form">
+          <label for="invite-code">邀请码</label>
+          <input
+            id="invite-code"
+            type="password"
+            inputmode="text"
+            autocomplete="off"
+            autocapitalize="characters"
+            spellcheck="false"
+            required
+            autofocus
+          />
+          <button id="unlock-button" type="submit">进入总谱</button>
+        </form>
+        <p class="status" id="gate-status" role="status" aria-live="polite">准备好一段安静的时间，跟着音乐读总谱。</p>
+        <p class="note">首次打开需要一点时间；本浏览器可保持访问 7 天。</p>
+      </section>
+    </main>
+  </body>
+</html>
